@@ -1,10 +1,10 @@
 {
-  "name": "express-pouchdb-jwt",
+  "name": "express-jwt-pouchdb",
   "description": "Express-PouchDB with JSON Web Token Support.",
   "author": "Tyler Johnson <tyler@tylerjohnson.me>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/tyler-johnson/express-pouchdb-jwt.git"
+    "url": "https://github.com/tyler-johnson/express-jwt-pouchdb.git"
   },
   "main": "index.js",
   "bin": "cli.js",

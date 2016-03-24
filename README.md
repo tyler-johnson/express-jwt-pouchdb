@@ -1,5 +1,25 @@
-# express-pouchdb-jwt
+# express-jwt-pouchdb
 
-[![npm](https://img.shields.io/npm/v/express-pouchdb-jwt.svg)](https://www.npmjs.com/package/express-pouchdb-jwt) [![David](https://img.shields.io/david/tyler-johnson/express-pouchdb-jwt.svg)](https://david-dm.org/tyler-johnson/express-pouchdb-jwt) [![Build Status](https://travis-ci.org/tyler-johnson/express-pouchdb-jwt.svg?branch=master)](https://travis-ci.org/tyler-johnson/express-pouchdb-jwt) 
+[![npm](https://img.shields.io/npm/v/express-jwt-pouchdb.svg)](https://www.npmjs.com/package/express-jwt-pouchdb) [![David](https://img.shields.io/david/tyler-johnson/express-jwt-pouchdb.svg)](https://david-dm.org/tyler-johnson/express-jwt-pouchdb) [![Build Status](https://travis-ci.org/tyler-johnson/express-jwt-pouchdb.svg?branch=master)](https://travis-ci.org/tyler-johnson/express-jwt-pouchdb)
 
-Express-PouchDB with JSON Web Token Support.
+[Express-PouchDB](http://ghub.io/express-pouchdb) clone with [JSON Web Token](https://jwt.io) support. This is designed to mimic the [couch_jwt_auth](https://github.com/softapalvelin/couch_jwt_auth) plugin for CouchDB so it can serve as a testing server. Configuration and usage matches that plugin.
+
+## Usage
+
+Install with NPM:
+
+```sh
+npm i express-jwt-pouchdb --save
+```
+
+And use just like you would express-pouchdb:
+
+```js
+var express = require("express"),
+    app     = express(),
+    PouchDB = require("pouchdb");
+
+app.use("/db", require("express-jwt-pouchdb")(PouchDB));
+
+app.listen(3000);
+```
