@@ -65,10 +65,16 @@ function toObject(array) {
 }
 
 export default function(PouchDB, opts={}) {
-		const pouchapp = EPouchDB(PouchDB, Object.assign({}, opts, {
+		const pouchapp = EPouchDB(Object.assign({}, opts, {
 			mode: "custom",
 			overrideMode: {}
 		}));
+
+		let setPouchDB = pouchapp.setPouchDB;
+		pouchapp.setPouchDB = function(PouchDB) {
+			pouchapp.PouchDB = PouchDB;
+			return setPouchDB(PouchDB);
+		};
 
 		// determine which parts of express-pouchdb to activate
 		opts.overrideMode = opts.overrideMode || {};
@@ -155,6 +161,10 @@ export default function(PouchDB, opts={}) {
 				require('express-pouchdb/lib/' + file)(pouchapp);
 			}
 		});
+
+		if (PouchDB) {
+			pouchapp.setPouchDB(PouchDB);
+		}
 
 		return pouchapp;
 }
