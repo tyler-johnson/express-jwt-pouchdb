@@ -1,10 +1,12 @@
 import utils from "express-pouchdb/lib/utils";
 import jwt from "jsonwebtoken";
 
+const auth_handler = "{couch_jwt_auth, jwt_authentication_handler}";
+
 // mimics couch_jwt_auth for express-pouchdb
 export default function(pouchapp) {
 	let authhandlers = (pouchapp.couchConfig.get("httpd", "authentication_handlers") || "").split(",");
-	authhandlers.unshift("{couch_jwt_auth, jwt_authentication_handler}");
+	if (!~authhandlers.indexOf(auth_handler)) authhandlers.unshift(auth_handler);
 	pouchapp.couchConfig.set("httpd", "authentication_handlers", authhandlers.filter(Boolean).join(","), ()=>{});
 	pouchapp.couchConfig.registerDefault("jwt_auth", "username_claim", "sub");
 	pouchapp.couchConfig.registerDefault("jwt_auth", "roles_claim", "roles");
