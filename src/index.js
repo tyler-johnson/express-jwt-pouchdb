@@ -64,7 +64,14 @@ function toObject(array) {
 	return result;
 }
 
-export default function(PouchDB, opts={}) {
+export default function(startPouchDB, opts) {
+		// both PouchDB and opts are optional
+		if (startPouchDB && !startPouchDB.defaults) {
+			[opts,startPouchDB] = [startPouchDB,null];
+		}
+
+		opts = opts || {};
+
 		const pouchapp = EPouchDB(Object.assign({}, opts, {
 			mode: "custom",
 			overrideMode: {}
@@ -162,8 +169,8 @@ export default function(PouchDB, opts={}) {
 			}
 		});
 
-		if (PouchDB) {
-			pouchapp.setPouchDB(PouchDB);
+		if (startPouchDB) {
+			pouchapp.setPouchDB(startPouchDB);
 		}
 
 		return pouchapp;
