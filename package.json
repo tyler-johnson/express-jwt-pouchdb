@@ -12,7 +12,9 @@
     "lint": "eslint src/ test/",
     "build": "make clean && make",
     "prepublish": "npm run build",
-    "autorelease": "autorelease pre && npm publish && autorelease post"
+    "autorelease": "autorelease pre && npm publish && autorelease post",
+    "test-pouchdb": "./bin/test-pouchdb.sh",
+    "test-couchdb": "./bin/test-couchdb.sh"
   },
   "dependencies": {
     "express": "^4.13.4",
@@ -33,6 +35,7 @@
     "babel-plugin-transform-es2015-destructuring": "^6.6.4",
     "babel-plugin-transform-es2015-parameters": "^6.6.4",
     "babel-plugin-transform-object-rest-spread": "^6.6.4",
+    "couchdb-harness": "^0.1.6",
     "eslint": "~2.2.0",
     "rollup": "^0.25.6",
     "rollup-plugin-babel": "^2.4.0",
