@@ -13,10 +13,6 @@ before_install:
 install:
   - npm install
 
-before_script:
-  - npm run lint
-  - npm run build
-
 script:
   - npm run $COMMAND
 
@@ -25,6 +21,7 @@ after_success:
 
 env:
   matrix:
+    - COMMAND=lint
     - CLIENT=node COMMAND=test-pouchdb
     - CLIENT=node SERVER_ARGS=--in-memory COMMAND=test-pouchdb
     - CLIENT=node SERVER_ARGS=--sqlite COMMAND=test-pouchdb
@@ -34,6 +31,9 @@ env:
 
 matrix:
   allow_failures:
+    - env: CLIENT=node COMMAND=test-pouchdb
+    - env: CLIENT=node SERVER_ARGS=--in-memory COMMAND=test-pouchdb
+    - env: CLIENT=node SERVER_ARGS=--sqlite COMMAND=test-pouchdb
     - env: COMMAND=test-couchdb
 
 branches:
