@@ -5,13 +5,13 @@ notifications:
   email: false
 
 node_js:
-  - "5"
+  - "stable"
 
 before_install:
   - npm i -g npm@latest
 
 install:
-  - npm upgrade && npm prune && npm rebuild
+  - npm install
 
 before_script:
   - npm run lint
