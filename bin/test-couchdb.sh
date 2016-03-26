@@ -4,7 +4,7 @@
 # couchdb-harness depends on the fact that /_config/httpd/port equals
 # the port on which pouchdb-server is running.
 echo '{"httpd": {"port": 6984}}' > config.json
-node bin/pouchdb-server &
+node cli.js -p 6984 &
 export EJP_SERVER_PID=$!
 ./node_modules/couchdb-harness/bin/couchdb-harness -p 6984
 
