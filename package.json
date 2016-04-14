@@ -42,5 +42,9 @@
     "tape": "^4.5.1"
   },
   "keywords": [],
-  "license": "MIT"
+  "license": "MIT",
+  "files": [
+    "index.js",
+    "cli.js"
+  ]
 }
