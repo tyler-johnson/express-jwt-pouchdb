@@ -35,7 +35,7 @@ env:
 #     - env: CLIENT=node SERVER_ARGS=--in-memory COMMAND=test-pouchdb
 #     - env: CLIENT=node SERVER_ARGS=--sqlite COMMAND=test-pouchdb
 #     - env: COMMAND=test-couchdb
-#
-# branches:
-#   only:
-#     - "master"
+
+branches:
+  only:
+    - "master"
