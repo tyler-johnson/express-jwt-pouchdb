@@ -1,5 +1,6 @@
 {
   "name": "express-jwt-pouchdb",
+  "version": "0.0.0-edge",
   "description": "Express-PouchDB with JSON Web Token Support.",
   "author": "Tyler Johnson <tyler@tylerjohnson.me>",
   "repository": {

@@ -22,20 +22,20 @@ after_success:
 env:
   matrix:
     - COMMAND=lint
-    - CLIENT=node COMMAND=test-pouchdb
-    - CLIENT=node SERVER_ARGS=--in-memory COMMAND=test-pouchdb
-    - CLIENT=node SERVER_ARGS=--sqlite COMMAND=test-pouchdb
+    # - CLIENT=node COMMAND=test-pouchdb
+    # - CLIENT=node SERVER_ARGS=--in-memory COMMAND=test-pouchdb
+    # - CLIENT=node SERVER_ARGS=--sqlite COMMAND=test-pouchdb
+    #
+    # # Test against the couchdb harness
+    # - COMMAND=test-couchdb
 
-    # Test against the couchdb harness
-    - COMMAND=test-couchdb
-
-matrix:
-  allow_failures:
-    - env: CLIENT=node COMMAND=test-pouchdb
-    - env: CLIENT=node SERVER_ARGS=--in-memory COMMAND=test-pouchdb
-    - env: CLIENT=node SERVER_ARGS=--sqlite COMMAND=test-pouchdb
-    - env: COMMAND=test-couchdb
-
-branches:
-  only:
-    - "master"
+# matrix:
+#   allow_failures:
+#     - env: CLIENT=node COMMAND=test-pouchdb
+#     - env: CLIENT=node SERVER_ARGS=--in-memory COMMAND=test-pouchdb
+#     - env: CLIENT=node SERVER_ARGS=--sqlite COMMAND=test-pouchdb
+#     - env: COMMAND=test-couchdb
+#
+# branches:
+#   only:
+#     - "master"
