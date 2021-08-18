@@ -18,8 +18,8 @@
     "test-couchdb": "./bin/test-couchdb.sh"
   },
   "dependencies": {
-    "express": "^4.13.4",
-    "express-pouchdb": "^1.0.3",
+    "express": "^4.14.1",
+    "express-pouchdb": "^4.2.0",
     "jsonwebtoken": "^7.0.1",
     "memdown": "^1.1.2",
     "minimist": "^1.2.0",

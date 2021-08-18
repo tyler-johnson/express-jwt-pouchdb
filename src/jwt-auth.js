@@ -39,10 +39,12 @@ export default function(pouchapp) {
 			return utils.sendError(res, e, 401);
 		}
 
-		if (typeof payload.name !== "string") payload.name = null;
+        let userNameClaim = pouchapp.couchConfig.get("jwt_auth", "username_claim");
+
+		if (typeof payload[userNameClaim] !== "string") payload[userNameClaim] = null;
 		if (!Array.isArray(payload.roles)) payload.roles = [];
 
-		req.couchSession.userCtx.name = payload.name;
+		req.couchSession.userCtx.name = payload[userNameClaim];
 		req.couchSession.userCtx.roles = payload.roles;
 		req.couchSession.info.authenticated = "jwt";
 
