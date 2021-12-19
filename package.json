@@ -1,11 +1,11 @@
 {
-  "name": "express-jwt-pouchdb",
-  "version": "0.0.0-edge",
+  "name": "@inator/express-jwt-pouchdb",
+  "version": "1.0.0",
   "description": "Express-PouchDB with JSON Web Token Support.",
-  "author": "Tyler Johnson <tyler@tylerjohnson.me>",
+  "author": "Orginal: Tyler Johnson <tyler@tylerjohnson.me>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/tyler-johnson/express-jwt-pouchdb.git"
+    "url": "https://github.com/inator/express-jwt-pouchdb"
   },
   "main": "index.js",
   "bin": "cli.js",
@@ -18,8 +18,8 @@
     "test-couchdb": "./bin/test-couchdb.sh"
   },
   "dependencies": {
-    "express": "^4.13.4",
-    "express-pouchdb": "^1.0.3",
+    "express": "^4.14.1",
+    "express-pouchdb": "^4.2.0",
     "jsonwebtoken": "^7.0.1",
     "memdown": "^1.1.2",
     "minimist": "^1.2.0",
